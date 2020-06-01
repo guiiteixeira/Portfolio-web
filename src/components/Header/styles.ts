@@ -30,4 +30,21 @@ export const Container = styled.header`
             height: 30px;
         }
     }
+
+    > div {
+        display: flex;
+        align-items: center;
+        transition: color 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            color: #666;
+        }
+
+        img {
+            margin-right: 4px;
+            width: 30px;
+            height: 30px;
+        }
+    }
 `;

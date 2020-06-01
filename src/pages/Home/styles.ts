@@ -110,7 +110,7 @@ export const Projects = styled.div`
             flex: 1;
 
             img {
-                margin-right: 7px;
+                margin-right: 10px;
             }
 
             strong {

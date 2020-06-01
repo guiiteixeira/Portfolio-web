@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { FiChevronRight, FiBookmark } from 'react-icons/fi';
-import ReactTooltip from 'react-tooltip';
 
 import { OwnerInfo, Projects } from './styles';
-import profileImg from '../../assets/profile.png';
-import qrCodeImg from '../../assets/frame.png';
+import profileImg from '../../assets/profile.jpeg';
+import qrCodeImg from '../../assets/Guilherme_da_Silva_Teixeira.png';
 import config from '../../config/config';
 
 import api from '../../services/api';
@@ -67,7 +66,7 @@ const Home: React.FC = () => {
                             </Link>
                         </li>
                     </ul>
-                    <img src={qrCodeImg} width={120} alt=""/>
+                    <img src={qrCodeImg} width={130} alt="Scan to linkedin"/>
                 </div>
                 
             </OwnerInfo>
@@ -77,7 +76,7 @@ const Home: React.FC = () => {
                     <Link key={project.id} to={`/projects/${project.id}`}>
                         <div>
                             <div>
-                                { project.iconPath && <img src={`${config.apiUrl}/icons/${project.iconPath}`} width={17} /> }
+                                { project.iconPath && <img src={`${config.apiUrl}/icons/${project.iconPath}`} width={20} alt={project.name} /> }
                                 <strong>{project.name}</strong>
                             </div>
                             <p>{formatDescription(project.description)}</p>
@@ -87,7 +86,6 @@ const Home: React.FC = () => {
                     </Link>
                 ))}
             </Projects>
-            <ReactTooltip place="bottom" effect="solid"/>
         </>
     );
 };

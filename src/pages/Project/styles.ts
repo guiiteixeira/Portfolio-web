@@ -4,7 +4,10 @@ export const Header = styled.div`
     display: flex;
 
     > img {
+        width: 200px;
+        height: 200px;
         border-radius: 30%;
+        object-fit:cover;
     }
 
     div {

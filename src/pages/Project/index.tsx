@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Header, Content, Container } from './styles';
 import ReactPlayer from 'react-player'
 import api from '../../services/api';
-import { useRouteMatch } from 'react-router-dom';
+import { useRouteMatch, Link } from 'react-router-dom';
 import config from '../../config/config';
 import githubImg from '../../assets/github.svg';
 import linkImg from '../../assets/link.svg';
+import { FiBookmark } from 'react-icons/fi';
 
 
 interface ProjectParams {
@@ -51,12 +52,13 @@ const Project: React.FC = () => {
         <Container>
 
             <Header >
-                <img src={`${config.apiUrl}/images/${project.imagePath}`} alt={project.name} width={200}/>
+                <img src={`${config.apiUrl}/images/${project.imagePath}`} alt={project.name}/>
                 <div>
                     <strong>{project.name}</strong>
                     <div>
                         { project.githubLink && <a href={project.githubLink}><img width="30" src={githubImg} alt="Github link"/></a>}
                         { project.link && <a href={project.link}><img width="30" src={linkImg} alt="Project link"/></a>}
+                        { project.certificate && <Link to={`/certificates/${project.certificate.id}`}><FiBookmark size={30} color="black"/></Link>}
                     </div>
                 </div>
             </Header>
