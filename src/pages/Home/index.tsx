@@ -19,11 +19,15 @@ interface Project {
 const Home: React.FC = () => {
     
     const [projects, setProjects] = useState<Project[]>([]);
-    //const [certificateCount, setCertificateCount] = useState(0);
+    const [certificateCount, setCertificateCount] = useState(0);
 
     useEffect(() => {
         api.get('/projects').then((result)=> {
             setProjects(result.data.projects);
+        });
+
+        api.get('/certificates').then((result)=> {
+            setCertificateCount(result.data.certificates.length);
         });
     }, []);
 
@@ -44,10 +48,11 @@ const Home: React.FC = () => {
                     />
                     <div>
                         <strong>Guilherme da Silva Teixeira</strong>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type
-                        specimen book.</p>
+                        <p>Olá, seja bem-vindo!</p>
+                        <p>Meu nome é Guilherme, tenho 21 anos e sou natural de Guaxupé, Minas Gerais. 
+                            Sou graduando em ciência da computação na Universidade Federal de Lavras. 
+                            O objetivo desta página é expor alguns dos meus trabalhos. Espero que goste!
+                        </p>
                     </div>
                 </header>
                 <div>
@@ -57,7 +62,7 @@ const Home: React.FC = () => {
                             <span>Projetos</span>
                         </li>
                         <li>
-                            <strong>{0}</strong>
+                            <strong>{certificateCount}</strong>
                             <span>Certificados</span>
                         </li>
                         <li>
